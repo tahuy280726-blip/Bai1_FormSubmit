@@ -1,0 +1,22 @@
+@model Bai1_FormSubmit.Models.AccountViewModel
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<h1>BÀI 1 – Form Submit cơ bản</h1>
+<p>Nhập <b>Ta Quang Huy</b> / <b>123</b> để đăng nhập thành công.</p>
+
+<form asp-action="Login" method="post">
+    <label>Username</label>
+    <input asp-for="Username" />
+
+    <label>Password</label>
+    <input asp-for="Password" type="password" />
+
+    <button type="submit">Đăng nhập</button>
+</form>
+
+@if (Model?.Message != null)
+{
+    <p class="@(Model.IsSuccess ? "success" : "error")">@Model.Message</p>
+}
